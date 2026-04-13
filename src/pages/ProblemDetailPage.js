@@ -10,23 +10,22 @@ const ProblemDetailPage = () => {
   const [bookmarked, setBookmarked] = useState(false);
   const [activeTab, setActiveTab] = useState('description'); // description, solution, discussion
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
+    const loadProblem = async () => {
+      try {
+        setLoading(true);
+        const data = await problemsApi.getProblem(id);
+        setProblem(data);
+        setBookmarked(data.isBookmarked || false);
+      } catch (err) {
+        console.error('문제 로딩 실패:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
     loadProblem();
   }, [id]);
-
-  const loadProblem = async () => {
-    try {
-      setLoading(true);
-      const data = await problemsApi.getProblem(id);
-      setProblem(data);
-      setBookmarked(data.isBookmarked || false);
-    } catch (err) {
-      console.error('문제 로딩 실패:', err);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const handleBookmark = async () => {
     try {
