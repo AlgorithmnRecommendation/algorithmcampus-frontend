@@ -175,9 +175,9 @@ const LandingPage = ({ onLogin }) => {
                     </div>
                     <p className="footer-copy">© 2025 AlgorithmCampus. MVP — 백준 전용</p>
                     <div className="footer-links">
-                        <a href="#">개인정보처리방침</a>
-                        <a href="#">이용약관</a>
-                        <a href="#">GitHub</a>
+                        <button type="button" onClick={() => {}}>개인정보처리방침</button>
+                        <button type="button" onClick={() => {}}>이용약관</button>
+                        <button type="button" onClick={() => {}}>GitHub</button>
                     </div>
                 </div>
             </footer>

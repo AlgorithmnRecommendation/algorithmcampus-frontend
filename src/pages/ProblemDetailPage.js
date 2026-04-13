@@ -10,6 +10,7 @@ const ProblemDetailPage = () => {
   const [bookmarked, setBookmarked] = useState(false);
   const [activeTab, setActiveTab] = useState('description'); // description, solution, discussion
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     loadProblem();
   }, [id]);
