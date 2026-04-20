@@ -336,6 +336,10 @@
     color: var(--dark);
     box-shadow: 0 1px 4px rgba(0,0,0,0.08);
 }
+.filter-tabs.single .filter-tab {
+    display: block;
+    text-align: center;
+}
 
 /* PROBLEM LIST */
 .problem-list { display: flex; flex-direction: column; gap: 2px; }
@@ -387,6 +391,7 @@
     color: var(--gray-600, #4B5563);
 }
 .prob-tag.lang { background: #EFF6FF; color: var(--primary); }
+.prob-tag.type { background: #ECFDF5; color: #047857; }
 .prob-reason {
     font-size: 11px;
     color: var(--gray-400);

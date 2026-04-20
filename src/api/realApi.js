@@ -46,11 +46,6 @@ export const realProblemsApi = {
     return apiClient.get('/problems/recommendations');
   },
 
-  // 문제 상세 정보
-  getProblem: (problemNumber) => {
-    return apiClient.get(`/problems/${problemNumber}`);
-  },
-
   // 문제 북마크
   bookmarkProblem: (problemNumber) => {
     return apiClient.post(`/problems/${problemNumber}/bookmark`);

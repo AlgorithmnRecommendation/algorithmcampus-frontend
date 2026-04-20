@@ -82,13 +82,6 @@ export const mockProblemsApi = {
     return { data: mockRecommendations };
   },
 
-  // 문제 상세 정보
-  getProblem: async (problemNumber) => {
-    await delay();
-    const problem = mockRecommendations.find(p => p.problemNumber === parseInt(problemNumber));
-    return { data: problem || mockRecommendations[0] };
-  },
-
   // 문제 북마크
   bookmarkProblem: async (problemNumber) => {
     await delay(300);
