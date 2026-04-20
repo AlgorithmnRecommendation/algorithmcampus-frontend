@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { problemsApi } from '../api';
 import Loading from '../components/Loading';
+import { getProblemNumber, goToProblemUrl } from '../utils/problemUrl';
 
 const BookmarksPage = () => {
   const [bookmarks, setBookmarks] = useState([]);
@@ -88,9 +89,10 @@ const BookmarksPage = () => {
             <div className="flex justify-between items-start mb-3">
               <div
                 className="flex-1 cursor-pointer"
-                onClick={() => window.location.href = `/problems/${problem.id}`}
+                onClick={() => goToProblemUrl(problem)}
               >
                 <h3 className="text-lg font-semibold text-gray-800 mb-2">{problem.title}</h3>
+                <div className="text-sm text-gray-500 mb-2">#{getProblemNumber(problem)}</div>
                 <div className="flex gap-2 mb-3 flex-wrap">
                   {problem.tags?.map((tag, idx) => (
                     <span key={idx} className="px-2 py-1 bg-gray-100 text-gray-700 rounded-full text-xs">
@@ -122,12 +124,6 @@ const BookmarksPage = () => {
 
             <div className="flex items-center justify-between text-sm text-gray-600 mb-3">
               <span>정답률: {problem.acceptanceRate}%</span>
-              <span className="flex items-center gap-1">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
-                {problem.solvedCount}명
-              </span>
             </div>
 
             <div className="flex items-center justify-between text-xs text-gray-500 pt-3 border-t border-gray-200">

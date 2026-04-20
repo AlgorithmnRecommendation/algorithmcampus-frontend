@@ -5,12 +5,9 @@ import LandingPage from './pages/LandingPage';
 import Dashboard from './pages/Dashboard';
 import RecommendationsPage from './pages/RecommendationsPage';
 import AnalysisPage from './pages/AnalysisPage';
-import SearchPage from './pages/SearchPage';
-import CategoryPage from './pages/CategoryPage';
 import SyncPage from './pages/SyncPage';
 import HistoryPage from './pages/HistoryPage';
 import BookmarksPage from './pages/BookmarksPage';
-import ProblemDetailPage from './pages/ProblemDetailPage';
 import Loading from './components/Loading';
 import './App.css';
 
@@ -77,26 +74,6 @@ function AppContent() {
           }
         />
         <Route
-          path="/search"
-          element={
-            <ProtectedRoute>
-              <Dashboard onLogout={logout}>
-                <SearchPage />
-              </Dashboard>
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/categories"
-          element={
-            <ProtectedRoute>
-              <Dashboard onLogout={logout}>
-                <CategoryPage />
-              </Dashboard>
-            </ProtectedRoute>
-          }
-        />
-        <Route
           path="/sync"
           element={
             <ProtectedRoute>
@@ -126,17 +103,6 @@ function AppContent() {
             </ProtectedRoute>
           }
         />
-        <Route
-          path="/problems/:id"
-          element={
-            <ProtectedRoute>
-              <Dashboard onLogout={logout}>
-                <ProblemDetailPage />
-              </Dashboard>
-            </ProtectedRoute>
-          }
-        />
-
         {/* Fallback */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

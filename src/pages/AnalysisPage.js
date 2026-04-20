@@ -37,22 +37,14 @@ const AnalysisPage = () => {
       </div>
 
       {/* 전체 통계 */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         <div className="bg-white rounded-lg shadow-md p-6">
           <div className="text-sm text-gray-600 mb-1">총 해결 문제</div>
           <div className="text-3xl font-bold text-blue-600">{stats?.totalSolved || 0}</div>
         </div>
         <div className="bg-white rounded-lg shadow-md p-6">
-          <div className="text-sm text-gray-600 mb-1">현재 티어</div>
-          <div className="text-3xl font-bold text-yellow-600">{stats?.currentTier || stats?.averageTier || 'N/A'}</div>
-        </div>
-        <div className="bg-white rounded-lg shadow-md p-6">
           <div className="text-sm text-gray-600 mb-1">연속 풀이</div>
           <div className="text-3xl font-bold text-green-600">{stats?.streak || stats?.currentStreak || 0}일</div>
-        </div>
-        <div className="bg-white rounded-lg shadow-md p-6">
-          <div className="text-sm text-gray-600 mb-1">평균 정답률</div>
-          <div className="text-3xl font-bold text-purple-600">{stats?.avgAccuracy || 0}%</div>
         </div>
       </div>
 
@@ -99,37 +91,6 @@ const AnalysisPage = () => {
                   <div className="text-sm font-medium text-red-800">{tag.tag}</div>
                   <div className="text-xs text-red-600 mt-1">
                     해결: {tag.count}문제 ({tag.percentage}%)
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {weakPoints?.difficultTiers && weakPoints.difficultTiers.length > 0 && (
-          <div className="mb-6">
-            <h3 className="text-lg font-semibold mb-3 text-orange-600">어려워하는 난이도</h3>
-            <div className="space-y-2">
-              {weakPoints.difficultTiers.map((tier, idx) => (
-                <div key={idx} className="bg-orange-50 border border-orange-200 rounded-lg p-3">
-                  <div className="flex justify-between">
-                    <span className="font-medium text-orange-800">{tier.tier}</span>
-                    <span className="text-sm text-orange-600">정답률: {tier.accuracy}%</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {weakPoints?.inactivePeriods && weakPoints.inactivePeriods.length > 0 && (
-          <div>
-            <h3 className="text-lg font-semibold mb-3 text-yellow-600">활동이 적었던 기간</h3>
-            <div className="space-y-2">
-              {weakPoints.inactivePeriods.map((period, idx) => (
-                <div key={idx} className="bg-yellow-50 border border-yellow-200 rounded-lg p-3">
-                  <div className="text-sm text-yellow-800">
-                    {period.period}: {period.problemCount}문제
                   </div>
                 </div>
               ))}

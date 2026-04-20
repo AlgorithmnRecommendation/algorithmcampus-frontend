@@ -89,7 +89,6 @@ const response = await userApi.getUser();
 
 ### 3. problemsApi
 - `getRecommendations()` - 추천 문제 목록
-- `getProblem(problemNumber)` - 문제 상세
 - `bookmarkProblem(problemNumber)` - 문제 북마크
 - `unbookmarkProblem(problemNumber)` - 북마크 해제
 
